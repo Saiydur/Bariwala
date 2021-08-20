@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bariwala.BAL;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -15,52 +16,22 @@ namespace Bariwala
 {
     public partial class Form_Bariwala_Login : MaterialForm
     {
-        private DataAccessLayer dataAL;
+        private LogicLayer logicLayer;
 
-        public DataAccessLayer DataAL
-        {
-            get { return dataAL; }
-        }
-
+        internal LogicLayer LogicLayer { get { return logicLayer; } set { logicLayer = value; } }
         public Form_Bariwala_Login()
         {
+            LogicLayer = new LogicLayer();
+
             InitializeComponent();
-            dataAL = new DataAccessLayer();
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
             Primary.LightBlue400, Primary.LightBlue500,
             Primary.LightBlue500, Accent.LightGreen400,
             TextShade.WHITE
             );
-        }
-        public Form_Bariwala_Login(string themeName)
-        {
-            InitializeComponent();
-            dataAL = new DataAccessLayer();
-            if (themeName.ToLower() == "light")
-            {
-                MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-                materialSkinManager.AddFormToManage(this);
-                materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.LightBlue400, Primary.LightBlue500,
-                Primary.LightBlue500, Accent.LightGreen400,
-                TextShade.WHITE
-                );
-            }
-            if (themeName.ToLower() == "dark")
-            {
-                MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-                materialSkinManager.AddFormToManage(this);
-                materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.LightBlue400, Primary.LightBlue500,
-                Primary.LightBlue500, Accent.LightGreen400,
-                TextShade.WHITE
-                );
-            }
         }
 
         private void Form_Bariwala_Login_FormClosed(object sender, FormClosedEventArgs e)
@@ -104,60 +75,69 @@ namespace Bariwala
         #endregion
 
         #region Events
+
+        //login button
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
             if (Validator())
             {
-                string username = txtLoginFormUserName.Text;
-                var userPassword = txtLoginFormUserPassword.Text;
-                var query = $"select * from UserInformations where " +
-                    $"userName='{username}'and userPassword='{userPassword}'";
                 try
                 {
-                    var result = DataAL.ExecuteQuery(query);
-                    var multiRow = result.Tables[0].Rows;
-                    if (multiRow.Count > 0)
-                    {
-                        int i = 0;
-                        while (i < multiRow.Count)
-                        {
-                            if (multiRow[i]["userActiveStatus"].ToString() != "1")
-                            {
-                                MessageBox.Show("Account Is Not Active");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Login Successful");
-                                if (multiRow[i]["userType"].ToString().Trim().ToLower().Equals("admin"))
-                                {
-                                    this.Visible = false;
-                                    FormAdmin formAdmin = new FormAdmin();
-                                    formAdmin.Visible = true;
-                                }
-                                else
-                                {
-                                    MessageBox.Show(multiRow[i]["userType"].ToString());
-                                }
+                    string tempUserName = txtLoginFormUserName.Text;
+                    string tempUserPass = txtLoginFormUserPassword.Text;
 
+                    var dataSet = LogicLayer.GetLoginUser(tempUserName, tempUserPass);
+                    if (dataSet.Tables[0].Rows[0]["userName"].ToString().Equals(tempUserName) && dataSet.Tables[0].Rows[0]["userPassword"].ToString().Equals(tempUserPass))
+                    {
+                        
+                        var dataSetToTable = dataSet.Tables[0];
+                        var userTypeString = dataSetToTable.Rows[0]["userType"].ToString().Trim().ToLower();
+                        var userActiveStatus = dataSetToTable.Rows[0]["activeStatus"].ToString().Trim().ToLower();
+
+                        //checking User Account Active Or Not
+                        if (userActiveStatus.Equals("yes"))
+                        {
+                            MaterialMessageBox.Show("Login Successful", "Success");
+                            if (userTypeString == "admin")
+                            {
+                                this.Hide();
+                                FormAdmin formAdmin = new FormAdmin(dataSetToTable);
+                                formAdmin.Visible = true;
                             }
-                            i++;
+                            if (userTypeString.Equals("flat owner"))
+                            {
+                                this.Visible = false;
+                                FormFlatOwner formFlatOwner = new FormFlatOwner(dataSetToTable);
+                                formFlatOwner.Visible = true;
+                            }
+                            if (userTypeString.Equals("tenant"))
+                            {
+                                this.Dispose();
+                                FormTenant formTenant = new FormTenant(dataSetToTable);
+                                formTenant.Visible = true;
+                            }
+                        }
+                        else
+                        {
+                            MaterialMessageBox.Show("User Not Active", "Warning");
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("Check Username/Password");
+                        MaterialMessageBox.Show("Check user name/password", "Error");
                     }
                 }
-                catch (Exception exc)
+                catch(Exception exe)
                 {
-                    MessageBox.Show(exc.Message.ToString());
+                    MessageBox.Show("Check user name/password", "Error");
                 }
             }
 
         }
 
+        //Hide/Show Pass Button
         private void checkBoxShowPass_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxShowPass.Checked)
@@ -172,16 +152,13 @@ namespace Bariwala
             }
         }
 
-        private void ToggleSwitchThemeMode_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Forget Pass Button
         private void btnForgetPass_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Take Rest And Try To Remeber Password :>");
         }
 
+        //Create Account Button Take To FormCreateAccount
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             FormCreateAccount formCreateAccount = new FormCreateAccount();

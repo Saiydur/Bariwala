@@ -88,7 +88,7 @@
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.btnCreateAccount.Size = new System.Drawing.Size(388, 53);
-            this.btnCreateAccount.TabIndex = 0;
+            this.btnCreateAccount.TabIndex = 5;
             this.btnCreateAccount.Values.Text = "Create New Account";
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
@@ -190,7 +190,7 @@
             this.txtLoginFormUserPassword.SelectedText = "";
             this.txtLoginFormUserPassword.ShadowDecoration.Parent = this.txtLoginFormUserPassword;
             this.txtLoginFormUserPassword.Size = new System.Drawing.Size(220, 40);
-            this.txtLoginFormUserPassword.TabIndex = 0;
+            this.txtLoginFormUserPassword.TabIndex = 1;
             this.txtLoginFormUserPassword.UseSystemPasswordChar = true;
             // 
             // txtLoginFormUserName

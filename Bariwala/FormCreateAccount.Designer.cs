@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.CBUserType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.DateTimePickerUserDOB = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.btnCreateAccount = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.BtnCreateAccount = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtUserSecretCode = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUserPasswordConfirm = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUserPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -79,7 +79,7 @@
             // 
             this.panel1.Controls.Add(this.CBUserType);
             this.panel1.Controls.Add(this.DateTimePickerUserDOB);
-            this.panel1.Controls.Add(this.btnCreateAccount);
+            this.panel1.Controls.Add(this.BtnCreateAccount);
             this.panel1.Controls.Add(this.txtUserSecretCode);
             this.panel1.Controls.Add(this.txtUserPasswordConfirm);
             this.panel1.Controls.Add(this.txtUserPassword);
@@ -129,15 +129,15 @@
             this.DateTimePickerUserDOB.Size = new System.Drawing.Size(200, 21);
             this.DateTimePickerUserDOB.TabIndex = 5;
             // 
-            // btnCreateAccount
+            // BtnCreateAccount
             // 
-            this.btnCreateAccount.Location = new System.Drawing.Point(155, 489);
-            this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
-            this.btnCreateAccount.Size = new System.Drawing.Size(90, 25);
-            this.btnCreateAccount.TabIndex = 10;
-            this.btnCreateAccount.Values.Text = "Sign Up";
-            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
+            this.BtnCreateAccount.Location = new System.Drawing.Point(155, 489);
+            this.BtnCreateAccount.Name = "BtnCreateAccount";
+            this.BtnCreateAccount.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.BtnCreateAccount.Size = new System.Drawing.Size(90, 25);
+            this.BtnCreateAccount.TabIndex = 10;
+            this.BtnCreateAccount.Values.Text = "Sign Up";
+            this.BtnCreateAccount.Click += new System.EventHandler(this.BtnCreateAccount_Click);
             // 
             // txtUserSecretCode
             // 
@@ -226,6 +226,7 @@
             this.txtEmailAddress.ShadowDecoration.Parent = this.txtEmailAddress;
             this.txtEmailAddress.Size = new System.Drawing.Size(200, 36);
             this.txtEmailAddress.TabIndex = 4;
+            this.txtEmailAddress.TextChanged += new System.EventHandler(this.txtEmailAddress_TextChanged);
             // 
             // txtUserAddress
             // 
@@ -270,6 +271,7 @@
             this.txtUserPhoneNumber.ShadowDecoration.Parent = this.txtUserPhoneNumber;
             this.txtUserPhoneNumber.Size = new System.Drawing.Size(200, 36);
             this.txtUserPhoneNumber.TabIndex = 2;
+            this.txtUserPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserPhoneNumber_KeyPress);
             // 
             // txtUserFullName
             // 
@@ -536,7 +538,7 @@
         private MaterialSkin.Controls.MaterialLabel lblPhoneNumber;
         private MaterialSkin.Controls.MaterialLabel lblFullName;
         private MaterialSkin.Controls.MaterialLabel lblUserName;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCreateAccount;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnCreateAccount;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker DateTimePickerUserDOB;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox CBUserType;
         private System.Windows.Forms.ErrorProvider errorProviderUserName;

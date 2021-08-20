@@ -16,7 +16,7 @@ namespace Bariwala
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormFlatOwner());
+            Application.Run(new FormLoadingApp());
         }
     }
 }

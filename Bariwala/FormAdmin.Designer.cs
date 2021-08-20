@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.TabControlAdmin = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageUserProfile = new System.Windows.Forms.TabPage();
@@ -96,11 +98,10 @@
             this.lblPassword = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageUpdateUser = new System.Windows.Forms.TabPage();
             this.cardUpdateUser = new MaterialSkin.Controls.MaterialCard();
-            this.lblUpdateUserUserDOB = new MaterialSkin.Controls.MaterialLabel();
-            this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.cmbUpdateUserUserActiveStatus = new MaterialSkin.Controls.MaterialComboBox();
             this.cmbUpdateUserUserType = new MaterialSkin.Controls.MaterialComboBox();
             this.panelUpdateUserButton = new System.Windows.Forms.Panel();
+            this.btnClearTextFieldUpdateUser = new MaterialSkin.Controls.MaterialButton();
             this.btnUpdateUser = new MaterialSkin.Controls.MaterialButton();
             this.txtUpdateUserUserEmail = new MaterialSkin.Controls.MaterialTextBox();
             this.txtUpdateUserUserPhoneNumber = new MaterialSkin.Controls.MaterialTextBox();
@@ -115,11 +116,24 @@
             this.tabPageDeleteUser = new System.Windows.Forms.TabPage();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dataGridViewDeleteUser = new System.Windows.Forms.DataGridView();
+            this.ColDeleteUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserMailAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserActiveStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserDOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserSecretCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDeleteUserPic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.btnDeleteUser = new MaterialSkin.Controls.MaterialButton();
             this.tabPageUserActiveStatus = new System.Windows.Forms.TabPage();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.dataGridViewActiveStatus = new System.Windows.Forms.DataGridView();
+            this.ColUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userNameActiveStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userCurrentStatusActiveStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -278,6 +292,7 @@
             // 
             // txtProfileUserName
             // 
+            this.txtProfileUserName.AutoWordSelection = true;
             this.txtProfileUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserName.Depth = 0;
             this.txtProfileUserName.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -296,6 +311,7 @@
             // 
             // txtProfileUserFullName
             // 
+            this.txtProfileUserFullName.AutoWordSelection = true;
             this.txtProfileUserFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserFullName.Depth = 0;
             this.txtProfileUserFullName.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -314,6 +330,7 @@
             // 
             // txtProfileUserEmail
             // 
+            this.txtProfileUserEmail.AutoWordSelection = true;
             this.txtProfileUserEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserEmail.Depth = 0;
             this.txtProfileUserEmail.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -332,6 +349,7 @@
             // 
             // txtProfileUserPhoneNo
             // 
+            this.txtProfileUserPhoneNo.AutoWordSelection = true;
             this.txtProfileUserPhoneNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserPhoneNo.Depth = 0;
             this.txtProfileUserPhoneNo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -350,6 +368,7 @@
             // 
             // txtProfileUserAddress
             // 
+            this.txtProfileUserAddress.AutoWordSelection = true;
             this.txtProfileUserAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserAddress.Depth = 0;
             this.txtProfileUserAddress.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -368,14 +387,16 @@
             // 
             // dtpProfileUserDOB
             // 
+            this.dtpProfileUserDOB.CalendarTodayDate = new System.DateTime(2021, 8, 9, 0, 0, 0, 0);
             this.dtpProfileUserDOB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpProfileUserDOB.Location = new System.Drawing.Point(3, 249);
             this.dtpProfileUserDOB.Name = "dtpProfileUserDOB";
-            this.dtpProfileUserDOB.Size = new System.Drawing.Size(546, 21);
+            this.dtpProfileUserDOB.Size = new System.Drawing.Size(546, 35);
             this.dtpProfileUserDOB.TabIndex = 6;
             // 
             // txtProfileUserSecretCode
             // 
+            this.txtProfileUserSecretCode.AutoWordSelection = true;
             this.txtProfileUserSecretCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserSecretCode.Depth = 0;
             this.txtProfileUserSecretCode.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -394,6 +415,7 @@
             // 
             // txtProfileUserOldPassword
             // 
+            this.txtProfileUserOldPassword.AutoWordSelection = true;
             this.txtProfileUserOldPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserOldPassword.Depth = 0;
             this.txtProfileUserOldPassword.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -413,6 +435,7 @@
             // 
             // txtProfileUserNewPassword
             // 
+            this.txtProfileUserNewPassword.AutoWordSelection = true;
             this.txtProfileUserNewPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserNewPassword.Depth = 0;
             this.txtProfileUserNewPassword.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -431,6 +454,7 @@
             // 
             // txtProfileUserConfirmNewPassword
             // 
+            this.txtProfileUserConfirmNewPassword.AutoWordSelection = true;
             this.txtProfileUserConfirmNewPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProfileUserConfirmNewPassword.Depth = 0;
             this.txtProfileUserConfirmNewPassword.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -465,6 +489,7 @@
             this.btnUpdateProfileDetails.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnUpdateProfileDetails.UseAccentColor = false;
             this.btnUpdateProfileDetails.UseVisualStyleBackColor = true;
+            this.btnUpdateProfileDetails.Click += new System.EventHandler(this.btnUpdateProfileDetails_Click);
             // 
             // panel3
             // 
@@ -545,6 +570,7 @@
             this.btnUpdateProfilePic.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnUpdateProfilePic.UseAccentColor = false;
             this.btnUpdateProfilePic.UseVisualStyleBackColor = true;
+            this.btnUpdateProfilePic.Click += new System.EventHandler(this.btnUpdateProfilePic_Click);
             // 
             // tabPageAddUser
             // 
@@ -574,14 +600,15 @@
             // 
             // dataGridViewAddUser
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAddUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewAddUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAddUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewAddUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAddUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userName,
@@ -593,14 +620,14 @@
             this.userDOB,
             this.userSecretCode,
             this.userAddress});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewAddUser.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewAddUser.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewAddUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewAddUser.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridViewAddUser.Location = new System.Drawing.Point(10, 0);
@@ -612,57 +639,75 @@
             // 
             // userName
             // 
+            this.userName.DataPropertyName = "userName";
             this.userName.HeaderText = "User Name";
             this.userName.Name = "userName";
             this.userName.ReadOnly = true;
+            this.userName.Width = 108;
             // 
             // userFullName
             // 
+            this.userFullName.DataPropertyName = "userFullName";
             this.userFullName.HeaderText = "Full Name";
             this.userFullName.Name = "userFullName";
             this.userFullName.ReadOnly = true;
+            this.userFullName.Width = 104;
             // 
             // userMailAddress
             // 
+            this.userMailAddress.DataPropertyName = "userMailAddress";
             this.userMailAddress.HeaderText = "Email";
             this.userMailAddress.Name = "userMailAddress";
             this.userMailAddress.ReadOnly = true;
+            this.userMailAddress.Width = 73;
             // 
             // userPhoneNumber
             // 
+            this.userPhoneNumber.DataPropertyName = "userPhoneNumber";
             this.userPhoneNumber.HeaderText = "Phone Number";
             this.userPhoneNumber.Name = "userPhoneNumber";
             this.userPhoneNumber.ReadOnly = true;
+            this.userPhoneNumber.Width = 136;
             // 
             // userType
             // 
+            this.userType.DataPropertyName = "userType";
             this.userType.HeaderText = "User Type";
             this.userType.Name = "userType";
             this.userType.ReadOnly = true;
+            this.userType.Width = 101;
             // 
             // userActiveStatus
             // 
+            this.userActiveStatus.DataPropertyName = "activeStatus";
             this.userActiveStatus.HeaderText = "Active Status";
             this.userActiveStatus.Name = "userActiveStatus";
             this.userActiveStatus.ReadOnly = true;
+            this.userActiveStatus.Width = 121;
             // 
             // userDOB
             // 
+            this.userDOB.DataPropertyName = "userDOB";
             this.userDOB.HeaderText = "Date Of Birth";
             this.userDOB.Name = "userDOB";
             this.userDOB.ReadOnly = true;
+            this.userDOB.Width = 126;
             // 
             // userSecretCode
             // 
+            this.userSecretCode.DataPropertyName = "userSecretCode";
             this.userSecretCode.HeaderText = "Secret Code";
             this.userSecretCode.Name = "userSecretCode";
             this.userSecretCode.ReadOnly = true;
+            this.userSecretCode.Width = 114;
             // 
             // userAddress
             // 
+            this.userAddress.DataPropertyName = "userAddress";
             this.userAddress.HeaderText = "Address";
             this.userAddress.Name = "userAddress";
             this.userAddress.ReadOnly = true;
+            this.userAddress.Width = 89;
             // 
             // panel2
             // 
@@ -1115,8 +1160,6 @@
             // cardUpdateUser
             // 
             this.cardUpdateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cardUpdateUser.Controls.Add(this.lblUpdateUserUserDOB);
-            this.cardUpdateUser.Controls.Add(this.kryptonDateTimePicker1);
             this.cardUpdateUser.Controls.Add(this.cmbUpdateUserUserActiveStatus);
             this.cardUpdateUser.Controls.Add(this.cmbUpdateUserUserType);
             this.cardUpdateUser.Controls.Add(this.panelUpdateUserButton);
@@ -1136,27 +1179,6 @@
             this.cardUpdateUser.Padding = new System.Windows.Forms.Padding(14, 20, 14, 14);
             this.cardUpdateUser.Size = new System.Drawing.Size(896, 454);
             this.cardUpdateUser.TabIndex = 1;
-            // 
-            // lblUpdateUserUserDOB
-            // 
-            this.lblUpdateUserUserDOB.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblUpdateUserUserDOB.AutoSize = true;
-            this.lblUpdateUserUserDOB.Depth = 0;
-            this.lblUpdateUserUserDOB.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblUpdateUserUserDOB.Location = new System.Drawing.Point(58, 266);
-            this.lblUpdateUserUserDOB.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblUpdateUserUserDOB.Name = "lblUpdateUserUserDOB";
-            this.lblUpdateUserUserDOB.Size = new System.Drawing.Size(127, 19);
-            this.lblUpdateUserUserDOB.TabIndex = 5;
-            this.lblUpdateUserUserDOB.Text = "User Date Of Birth";
-            // 
-            // kryptonDateTimePicker1
-            // 
-            this.kryptonDateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(55, 288);
-            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(787, 21);
-            this.kryptonDateTimePicker1.TabIndex = 4;
             // 
             // cmbUpdateUserUserActiveStatus
             // 
@@ -1215,12 +1237,33 @@
             // 
             // panelUpdateUserButton
             // 
+            this.panelUpdateUserButton.Controls.Add(this.btnClearTextFieldUpdateUser);
             this.panelUpdateUserButton.Controls.Add(this.btnUpdateUser);
             this.panelUpdateUserButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelUpdateUserButton.Location = new System.Drawing.Point(14, 315);
             this.panelUpdateUserButton.Name = "panelUpdateUserButton";
             this.panelUpdateUserButton.Size = new System.Drawing.Size(868, 125);
             this.panelUpdateUserButton.TabIndex = 1;
+            // 
+            // btnClearTextFieldUpdateUser
+            // 
+            this.btnClearTextFieldUpdateUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClearTextFieldUpdateUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClearTextFieldUpdateUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClearTextFieldUpdateUser.Depth = 0;
+            this.btnClearTextFieldUpdateUser.HighEmphasis = true;
+            this.btnClearTextFieldUpdateUser.Icon = null;
+            this.btnClearTextFieldUpdateUser.Location = new System.Drawing.Point(293, 44);
+            this.btnClearTextFieldUpdateUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClearTextFieldUpdateUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClearTextFieldUpdateUser.Name = "btnClearTextFieldUpdateUser";
+            this.btnClearTextFieldUpdateUser.Size = new System.Drawing.Size(167, 36);
+            this.btnClearTextFieldUpdateUser.TabIndex = 4;
+            this.btnClearTextFieldUpdateUser.Text = "Clear All Text Box";
+            this.btnClearTextFieldUpdateUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClearTextFieldUpdateUser.UseAccentColor = false;
+            this.btnClearTextFieldUpdateUser.UseVisualStyleBackColor = true;
+            this.btnClearTextFieldUpdateUser.Click += new System.EventHandler(this.btnClearTextFieldUpdateUser_Click);
             // 
             // btnUpdateUser
             // 
@@ -1230,7 +1273,7 @@
             this.btnUpdateUser.Depth = 0;
             this.btnUpdateUser.HighEmphasis = true;
             this.btnUpdateUser.Icon = null;
-            this.btnUpdateUser.Location = new System.Drawing.Point(376, 49);
+            this.btnUpdateUser.Location = new System.Drawing.Point(508, 44);
             this.btnUpdateUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpdateUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdateUser.Name = "btnUpdateUser";
@@ -1240,6 +1283,7 @@
             this.btnUpdateUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnUpdateUser.UseAccentColor = false;
             this.btnUpdateUser.UseVisualStyleBackColor = true;
+            this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
             // 
             // txtUpdateUserUserEmail
             // 
@@ -1381,6 +1425,7 @@
             this.btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnSearch.UseAccentColor = false;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtUpdateUserInput
             // 
@@ -1459,12 +1504,127 @@
             // 
             // dataGridViewDeleteUser
             // 
+            this.dataGridViewDeleteUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridViewDeleteUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDeleteUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColDeleteUserId,
+            this.ColDeleteUserName,
+            this.ColDeleteUserFullName,
+            this.ColDeleteUserMailAddress,
+            this.ColDeleteUserPhoneNumber,
+            this.ColDeleteUserPassword,
+            this.ColDeleteUserType,
+            this.ColDeleteUserActiveStatus,
+            this.ColDeleteUserDOB,
+            this.ColDeleteUserSecretCode,
+            this.ColDeleteUserAddress,
+            this.ColDeleteUserPic});
             this.dataGridViewDeleteUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDeleteUser.Location = new System.Drawing.Point(14, 14);
             this.dataGridViewDeleteUser.Name = "dataGridViewDeleteUser";
+            this.dataGridViewDeleteUser.ReadOnly = true;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewDeleteUser.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridViewDeleteUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDeleteUser.Size = new System.Drawing.Size(868, 396);
             this.dataGridViewDeleteUser.TabIndex = 0;
+            // 
+            // ColDeleteUserId
+            // 
+            this.ColDeleteUserId.DataPropertyName = "userID";
+            this.ColDeleteUserId.HeaderText = "UserID";
+            this.ColDeleteUserId.Name = "ColDeleteUserId";
+            this.ColDeleteUserId.ReadOnly = true;
+            this.ColDeleteUserId.Width = 83;
+            // 
+            // ColDeleteUserName
+            // 
+            this.ColDeleteUserName.DataPropertyName = "userName";
+            this.ColDeleteUserName.HeaderText = "User Name";
+            this.ColDeleteUserName.Name = "ColDeleteUserName";
+            this.ColDeleteUserName.ReadOnly = true;
+            this.ColDeleteUserName.Width = 99;
+            // 
+            // ColDeleteUserFullName
+            // 
+            this.ColDeleteUserFullName.DataPropertyName = "userFullName";
+            this.ColDeleteUserFullName.HeaderText = "Full Name";
+            this.ColDeleteUserFullName.Name = "ColDeleteUserFullName";
+            this.ColDeleteUserFullName.ReadOnly = true;
+            this.ColDeleteUserFullName.Width = 96;
+            // 
+            // ColDeleteUserMailAddress
+            // 
+            this.ColDeleteUserMailAddress.DataPropertyName = "userMailAddress";
+            this.ColDeleteUserMailAddress.HeaderText = "Email Address";
+            this.ColDeleteUserMailAddress.Name = "ColDeleteUserMailAddress";
+            this.ColDeleteUserMailAddress.ReadOnly = true;
+            this.ColDeleteUserMailAddress.Width = 120;
+            // 
+            // ColDeleteUserPhoneNumber
+            // 
+            this.ColDeleteUserPhoneNumber.DataPropertyName = "userPhoneNumber";
+            this.ColDeleteUserPhoneNumber.HeaderText = "Phone Number";
+            this.ColDeleteUserPhoneNumber.Name = "ColDeleteUserPhoneNumber";
+            this.ColDeleteUserPhoneNumber.ReadOnly = true;
+            this.ColDeleteUserPhoneNumber.Width = 124;
+            // 
+            // ColDeleteUserPassword
+            // 
+            this.ColDeleteUserPassword.DataPropertyName = "userPassword";
+            this.ColDeleteUserPassword.HeaderText = "Password";
+            this.ColDeleteUserPassword.Name = "ColDeleteUserPassword";
+            this.ColDeleteUserPassword.ReadOnly = true;
+            this.ColDeleteUserPassword.Width = 97;
+            // 
+            // ColDeleteUserType
+            // 
+            this.ColDeleteUserType.DataPropertyName = "userType";
+            this.ColDeleteUserType.HeaderText = "User Type";
+            this.ColDeleteUserType.Name = "ColDeleteUserType";
+            this.ColDeleteUserType.ReadOnly = true;
+            this.ColDeleteUserType.Width = 93;
+            // 
+            // ColDeleteUserActiveStatus
+            // 
+            this.ColDeleteUserActiveStatus.DataPropertyName = "activeStatus";
+            this.ColDeleteUserActiveStatus.HeaderText = "ActiveStatus";
+            this.ColDeleteUserActiveStatus.Name = "ColDeleteUserActiveStatus";
+            this.ColDeleteUserActiveStatus.ReadOnly = true;
+            this.ColDeleteUserActiveStatus.Width = 117;
+            // 
+            // ColDeleteUserDOB
+            // 
+            this.ColDeleteUserDOB.DataPropertyName = "userDOB";
+            this.ColDeleteUserDOB.HeaderText = "User Date Of Birth";
+            this.ColDeleteUserDOB.Name = "ColDeleteUserDOB";
+            this.ColDeleteUserDOB.ReadOnly = true;
+            this.ColDeleteUserDOB.Width = 114;
+            // 
+            // ColDeleteUserSecretCode
+            // 
+            this.ColDeleteUserSecretCode.DataPropertyName = "userSecretCode";
+            this.ColDeleteUserSecretCode.HeaderText = "Secret Code";
+            this.ColDeleteUserSecretCode.Name = "ColDeleteUserSecretCode";
+            this.ColDeleteUserSecretCode.ReadOnly = true;
+            this.ColDeleteUserSecretCode.Width = 105;
+            // 
+            // ColDeleteUserAddress
+            // 
+            this.ColDeleteUserAddress.DataPropertyName = "userAddress";
+            this.ColDeleteUserAddress.HeaderText = "Address";
+            this.ColDeleteUserAddress.Name = "ColDeleteUserAddress";
+            this.ColDeleteUserAddress.ReadOnly = true;
+            this.ColDeleteUserAddress.Width = 89;
+            // 
+            // ColDeleteUserPic
+            // 
+            this.ColDeleteUserPic.DataPropertyName = "userPic";
+            this.ColDeleteUserPic.HeaderText = "User Pic Details";
+            this.ColDeleteUserPic.Name = "ColDeleteUserPic";
+            this.ColDeleteUserPic.ReadOnly = true;
+            this.ColDeleteUserPic.Width = 128;
             // 
             // materialCard1
             // 
@@ -1483,6 +1643,7 @@
             // 
             // btnDeleteUser
             // 
+            this.btnDeleteUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDeleteUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDeleteUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnDeleteUser.Depth = 0;
@@ -1498,6 +1659,7 @@
             this.btnDeleteUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnDeleteUser.UseAccentColor = false;
             this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // tabPageUserActiveStatus
             // 
@@ -1530,25 +1692,43 @@
             // dataGridViewActiveStatus
             // 
             this.dataGridViewActiveStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewActiveStatus.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewActiveStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActiveStatus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColUserId,
             this.userNameActiveStatus,
             this.userCurrentStatusActiveStatus});
             this.dataGridViewActiveStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewActiveStatus.Location = new System.Drawing.Point(14, 14);
             this.dataGridViewActiveStatus.Name = "dataGridViewActiveStatus";
+            this.dataGridViewActiveStatus.ReadOnly = true;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewActiveStatus.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridViewActiveStatus.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewActiveStatus.Size = new System.Drawing.Size(607, 490);
             this.dataGridViewActiveStatus.TabIndex = 0;
             // 
+            // ColUserId
+            // 
+            this.ColUserId.DataPropertyName = "userID";
+            this.ColUserId.HeaderText = "User Id";
+            this.ColUserId.Name = "ColUserId";
+            this.ColUserId.ReadOnly = true;
+            // 
             // userNameActiveStatus
             // 
+            this.userNameActiveStatus.DataPropertyName = "userName";
             this.userNameActiveStatus.HeaderText = "UserName";
             this.userNameActiveStatus.Name = "userNameActiveStatus";
+            this.userNameActiveStatus.ReadOnly = true;
             // 
             // userCurrentStatusActiveStatus
             // 
+            this.userCurrentStatusActiveStatus.DataPropertyName = "activeStatus";
             this.userCurrentStatusActiveStatus.HeaderText = "Active Status";
             this.userCurrentStatusActiveStatus.Name = "userCurrentStatusActiveStatus";
+            this.userCurrentStatusActiveStatus.ReadOnly = true;
             // 
             // panel6
             // 
@@ -1579,6 +1759,7 @@
             this.btnActiveStatusUpdate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnActiveStatusUpdate.UseAccentColor = false;
             this.btnActiveStatusUpdate.UseVisualStyleBackColor = true;
+            this.btnActiveStatusUpdate.Click += new System.EventHandler(this.btnActiveStatusUpdate_Click);
             // 
             // cmbActiveStatusUserType
             // 
@@ -1595,6 +1776,9 @@
             this.cmbActiveStatusUserType.FormattingEnabled = true;
             this.cmbActiveStatusUserType.IntegralHeight = false;
             this.cmbActiveStatusUserType.ItemHeight = 43;
+            this.cmbActiveStatusUserType.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
             this.cmbActiveStatusUserType.Location = new System.Drawing.Point(10, 199);
             this.cmbActiveStatusUserType.MaxDropDownItems = 4;
             this.cmbActiveStatusUserType.MouseState = MaterialSkin.MouseState.OUT;
@@ -1649,7 +1833,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tabPageUpdateUser.ResumeLayout(false);
             this.cardUpdateUser.ResumeLayout(false);
-            this.cardUpdateUser.PerformLayout();
             this.panelUpdateUserButton.ResumeLayout(false);
             this.panelUpdateUserButton.PerformLayout();
             this.panelUpdateUserSearchingOptn.ResumeLayout(false);
@@ -1702,15 +1885,6 @@
         private System.Windows.Forms.Panel panel2;
         private MaterialSkin.Controls.MaterialButton btnAddUser;
         private System.Windows.Forms.DataGridView dataGridViewAddUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userFullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userMailAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userPhoneNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userActiveStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userDOB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userSecretCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userAddress;
         private System.Windows.Forms.Panel panelUpdateUserSearchingOptn;
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialTextBox txtUpdateUserInput;
@@ -1724,14 +1898,12 @@
         private MaterialSkin.Controls.MaterialTextBox txtUpdateUserUserFullName;
         private MaterialSkin.Controls.MaterialTextBox txtUpdateUserUserId;
         private MaterialSkin.Controls.MaterialButton btnUpdateUser;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
         private MaterialSkin.Controls.MaterialComboBox cmbUpdateUserUserActiveStatus;
         private MaterialSkin.Controls.MaterialComboBox cmbUpdateUserUserType;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private System.Windows.Forms.DataGridView dataGridViewDeleteUser;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialButton btnDeleteUser;
-        private MaterialSkin.Controls.MaterialLabel lblUpdateUserUserDOB;
         private System.Windows.Forms.Panel panelProfileDetails;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
@@ -1757,10 +1929,33 @@
         private MaterialSkin.Controls.MaterialCard materialCard4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dataGridViewActiveStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userNameActiveStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userCurrentStatusActiveStatus;
         private MaterialSkin.Controls.MaterialButton btnActiveStatusUpdate;
         private MaterialSkin.Controls.MaterialComboBox cmbActiveStatusUserType;
         private System.Windows.Forms.TabPage tabPageLogout;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userFullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userMailAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userActiveStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userDOB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userSecretCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userAddress;
+        private MaterialSkin.Controls.MaterialButton btnClearTextFieldUpdateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserFullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserMailAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserPassword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserActiveStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserDOB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserSecretCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleteUserPic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColUserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userNameActiveStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userCurrentStatusActiveStatus;
     }
 }

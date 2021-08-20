@@ -57,6 +57,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MaterialSkin.2.2.2.1\lib\net461\MaterialSkin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -74,7 +92,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccessLayer.cs" />
+    <Compile Include="BAL\FlatsLayer.cs" />
+    <Compile Include="BAL\LogicLayer.cs" />
+    <Compile Include="BAL\PrintingBillLogic.cs" />
+    <Compile Include="DAL\Entities\FlatDetails.cs" />
+    <Compile Include="DAL\Entities\PrintingBill.cs" />
+    <Compile Include="DAL\Entities\User.cs" />
+    <Compile Include="DAL\FlatsDL.cs" />
+    <Compile Include="DAL\InvoiceDL.cs" />
+    <Compile Include="DAL\UserDL.cs" />
+    <Compile Include="DAL\DataAccessLayer.cs" />
+    <Compile Include="DataSetForInvoice.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetForInvoice.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +131,12 @@
     <Compile Include="FormLoadingForm.Designer.cs">
       <DependentUpon>FormLoadingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPrintingBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintingBill.Designer.cs">
+      <DependentUpon>FormPrintingBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTenant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +151,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,12 +164,16 @@
     <EmbeddedResource Include="FormLoadingForm.resx">
       <DependentUpon>FormLoadingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintingBill.resx">
+      <DependentUpon>FormPrintingBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTenant.resx">
       <DependentUpon>FormTenant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Bariwala_Login.resx">
       <DependentUpon>Form_Bariwala_Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintInvoice.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -141,6 +184,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DataSetForInvoice.xsc">
+      <DependentUpon>DataSetForInvoice.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetForInvoice.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetForInvoice.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetForInvoice.xss">
+      <DependentUpon>DataSetForInvoice.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -160,6 +214,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3911021.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

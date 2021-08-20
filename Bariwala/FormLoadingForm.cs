@@ -23,7 +23,7 @@ namespace Bariwala
             this.progressBarLoading.Maximum = 100;
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
             Primary.LightBlue400, Primary.LightBlue500,
             Primary.LightBlue500, Accent.LightGreen400,

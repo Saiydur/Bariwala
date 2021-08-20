@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bariwala.BAL;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -14,19 +15,19 @@ namespace Bariwala
 {
     public partial class FormCreateAccount : MaterialForm
     {
-        private DataAccessLayer dataAL;
+        private LogicLayer logicLayer;
 
-        public DataAccessLayer DataAL
-        {
-            get { return dataAL; }
-        }
+        internal LogicLayer LogicLayer { get; set; }
+
         public FormCreateAccount()
         {
+            //Connecting Data Base Indirectly
+            LogicLayer = new LogicLayer();
+
             InitializeComponent();
-            dataAL = new DataAccessLayer();
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
             Primary.LightBlue400, Primary.LightBlue500,
             Primary.LightBlue500, Accent.LightGreen400,
@@ -62,7 +63,15 @@ namespace Bariwala
             }
             else
             {
-                errorProviderPhoneNumber.SetError(txtUserPhoneNumber, null);
+                int textLength = txtUserPhoneNumber.Text.Length;
+                if (textLength == 11 || textLength == 13 || textLength == 14)
+                {
+                    errorProviderPhoneNumber.SetError(txtUserPhoneNumber, null);
+                }
+                else {
+                    errorProviderPhoneNumber.SetError(txtUserPhoneNumber, "Invalid Phone Number");
+                    status = false;
+                }
             }
             if (string.IsNullOrEmpty(txtUserAddress.Text))
             {
@@ -140,45 +149,75 @@ namespace Bariwala
             txtUserSecretCode.Text = "";
             txtUserAddress.Text = "";
             CBUserType.SelectedItem = null;
-            DateTimePickerUserDOB.Text = "";
+            DateTimePickerUserDOB.Text = null;
+        }
+
+        private bool isValidEmail()
+        {
+            string expression = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+
+            if (Regex.IsMatch(txtEmailAddress.Text, expression))
+            {
+               return true; 
+            }
+            return false;
         }
         #endregion
 
-        private void btnCreateAccount_Click(object sender, EventArgs e)
+        //create account button
+        private void BtnCreateAccount_Click(object sender, EventArgs e)
         {
             if (ValidatingAllTextBox())
             {
-                var tempEmailAddress=txtEmailAddress.Text;
-                var tempUserAddress = txtUserAddress.Text;
-                var tempUserFullName = txtUserFullName.Text;
-                var tempUserName = txtUserName.Text;
-                var tempUserPassword = txtUserPassword.Text;
-                var tempUserPhoneNumber = txtUserPhoneNumber.Text;
-                var tempUserSecretCode = txtUserSecretCode.Text;
-                var tempUserType = CBUserType.Text;
                 var tempDOB = DateTimePickerUserDOB.Value.ToString("dd-MM-yyyy");
 
-                var queryToInsert = $"insert into UserInformations " +
-                    $"values('{tempUserName}','{tempUserFullName}','{tempEmailAddress}'," +
-                    $"'{tempUserPhoneNumber}','{tempUserPassword}','{tempUserType}'," +
-                    $"0,'{tempDOB}','{tempUserSecretCode}','{tempUserAddress}')";
+                int row =LogicLayer.AddUser(txtUserName.Text, txtUserFullName.Text, txtEmailAddress.Text,
+                    txtUserPhoneNumber.Text, txtUserPassword.Text, CBUserType.Text, "no", tempDOB, txtUserSecretCode.Text,
+                    txtUserAddress.Text);
 
-                try
+                if (row == 0)
                 {
-                    var result = DataAL.ExecuteUpdateQuery(queryToInsert);
-                    ClearAllTextBox();
-                    MaterialMessageBox.Show(result.ToString()+" User Added");
+                    MaterialMessageBox.Show("Signed Up Fail", "Error");
                 }
-                catch (Exception exc)
-                {
-                    MaterialMessageBox.Show(exc.ToString());
-                }
+                else { MaterialMessageBox.Show("Signed Up Successfully", "Success"); }
+                ClearAllTextBox();
+                this.Visible = false;
             }
         }
 
+        //Form Close
         private void FormCreateAccount_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
+        }
+
+        //Phone Number Text Box Accept + and Digit
+        private void txtUserPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '+') )
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Checking Email Address Valid Or Not
+        private void txtEmailAddress_TextChanged(object sender, EventArgs e)
+        {
+            if (isValidEmail())
+            {
+                errorProviderEmail.SetError(txtEmailAddress, null);
+            }
+            else
+            {
+                if (txtEmailAddress.Text.Equals(""))
+                {
+                    errorProviderEmail.SetError(txtEmailAddress, "Text Box Cannot Be Empty");
+                }
+                else
+                {
+                    errorProviderEmail.SetError(txtEmailAddress, "Enter Valid Email");
+                }
+            }
         }
     }
 }
